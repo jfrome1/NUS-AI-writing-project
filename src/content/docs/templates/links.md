@@ -5,19 +5,19 @@ title: Generative AI policy
 
 ## Summary of the GenAI policy
 
-- You are free to use or not use GenAI chatbots in this course [:in any way](#x-modified)
+- You are free to use or not use GenAI chatbots in this course in any way as long as you submit links to your chat transcripts.
+- There is no penalty for using GenAI as long as you submit links.
 - *Every* assignment in this course must include either 1) a link to a transcript of all relevant GenAI use or 2) a statement that no GenAI was used.
-- There is no penalty for using GenAI as long as you submit your chat transcripts.
 
 :::tip
-Links that start with `:` are text-expansion links. I recommend reading the whole sample policy through without clicking, and then going back to click for more detail.
+Links that start with `:` are text-expansion links. I recommend reading the whole page through without clicking, and then going back to click for more detail.
 :::
 
 See the rest of the page for important details.
 
-# :x modified
+## Guidelines for GenAI use
 
-[_Note to colleagues_: I can modify this page for others who might want to use it with a different GenAI policy. For example, your policy could read, "You are free to use or not use GenAI chatbots in this course for the following purposes only: 1) idea generation, 2) revision of drafts you wrote without GenAI." The 2nd bullet point could read, "GenAi can be used only for short assignments and not papers. All short assignments must include..."]
+[add guidelines here]
 
 ## What counts as GenAI?
 
@@ -29,11 +29,19 @@ GenAI doesn't include basic computer-assisted editing like the grammar and spell
 
 It includes (but is not limited to) tools such as  ChatGPT, Microsoft CoPilot, Gemini, Claude, many other tools whose names I don't know, and home-run LLMs used for coursework.
 
-These tools count as GenAI regardless of how you use them--i.e. it's GenAI use even if you just ask the tool to check your spelling.
+## What counts as GenAI use?
+
+Everything counts. If you use these these tools in any way while working on your assignment, consider it  GenAI use, and send the link. It doesn't matter if:
+
+- you just ask the tool to check your spelling
+- you ask questions and the tool's output is totally unhelpful
+- you are just testing the tool to see if it will be helpful and you decide that it's not
+
+Send the link!
 
 ## Using GenAI in this course...
 
-The course's [:permissive GenAI policy](#x-permissive) is: you may use GenAI chatbots ([:but only chatbots](#x-chatbots)) for any coursework with no penalty if you submit [:the actual chat transcript](#x-one-chat) along with the assignment. If you use GenAI but don't submit [:the transcript](#x-submit-all), you've [:broken the rules](#x-no-submission).
+The course's [:GenAI policy](#x-permissive) is: you may use GenAI chatbots ([:but only chatbots](#x-chatbots)) for any coursework with no penalty if you submit [:links to all of your chat transcripts](#x-one-chat) along with the assignment. If you use GenAI but don't submit [:the links](#x-submit-all), you've [:broken the rules](#x-no-submission).
 
 Use or non-use of GenAI in this course [:will not affect your grade](#x-grade).
 
