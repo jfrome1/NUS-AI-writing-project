@@ -1,0 +1,11 @@
+---
+title: NTW2029
+template: splash
+hero:
+  actions:
+    - text: Please click here
+      link: /course-ntw2029/
+      icon: right-arrow
+      variant: primary
+---
+
