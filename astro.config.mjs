@@ -14,7 +14,7 @@ export default defineConfig({
   }),
   integrations: [
     starlight({
-      title: 'Frome GenAI',
+      title: 'NUS GenAI Policy Project',
       customCss: [
         './src/styles/custom.css'
       ],
