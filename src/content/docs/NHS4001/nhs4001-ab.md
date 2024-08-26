@@ -1,5 +1,5 @@
 ---
-title: NHS4001
+title: Sections A and B
 ---
 
 Instructor: Lo Mun Hou
