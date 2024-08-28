@@ -1,15 +1,18 @@
 ---
-title: NTW2029
+title: Section TW55
 ---
 
-Instructor: Jonathan Frome
-This section meets Tue and Fri at 14:00 in LL-SR3
+HSH1000, Section TW55
+Instructor: Martin Chong Ken Chuan
+This section meets Fri at 12:00 in AS3-0314
 
 ## Summary of the GenAI policy
 
-- You are free to use or not use GenAI chatbots in this course in any way as long as you submit links to your chat transcripts
+- You are free to use or not use GenAI chatbots in this course in almost any way as long as you submit links to your chat transcripts
 - There is no penalty for using GenAI chatbots
 - Every assignment in this course must include either 1) a link to a transcript of all relevant GenAI use or 2) a statement that no GenAI was used.
+
+The only GenAI use that is not allowed is submitting an assignment that is entirely written by GenAI.
 
 See the rest of the page for important details.
 
@@ -26,9 +29,7 @@ The course's GenAI policy is: you may use GenAI chatbots ([:but only chatbots](#
 1) you use a GenAI tool that lets you share a [:persistent chat link](#x-persistent)
 2) you submit [:links to all of your chat transcripts](#x-one-chat) along with the assignment
 
-If you use GenAI but don't submit [:the links](#x-submit-all), you've [:broken the rules](#x-no-submission).
-
-You do not need to cite your use of GenAI in assignments in addition to providing your chat links. The links alone are sufficient citation.
+If you use GenAI but don't submit [:the links](#x-submit-all), you've [:broken the rules](#x-no-submission). You do not need to cite your use of GenAI in assignments in any way other than providing your chat links.
 
 Use or non-use of GenAI in this course [:will not affect your grade](#x-grade).
 
@@ -75,16 +76,6 @@ Don't make the mistake of [:copying the wrong links](#x-wrong-links).
 ## NUS general GenAI policy
 
 GenAI policy in this course should be understood in relation to the [:NUS Academic Honesty policy](#x-nus-genai).
-
-## Instructor GenAI declaration
-
-I've tried to use GenAI to help with teaching preparation and instruction, but so far I haven't found it very helpful. Nonetheless, I am still interested in experimenting with this possibility, so for the sake of transparency, I'm letting you know that I might use AI in the following ways:
-
-- generate questions for in-class activities or optional (ungraded) online quizzes
-- generate writing examples for discussion or to illustrate my points
-- revise handouts or lecture notes
-- revise online course content, including on Canvas and my course website
-- revise my written feedback on assignments (I write the initial feedback without GenAI and do all final revisions)
 
 # :x submit all
 
