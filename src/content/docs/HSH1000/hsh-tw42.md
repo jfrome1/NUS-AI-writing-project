@@ -2,9 +2,9 @@
 title: Section TW42
 ---
 
-HSH1000, Section TW42
-Instructor: Teo Shu Mei
-This section meets Thu at 12:00 in AS1-0208
+- HSH1000, Section TW42
+- Instructor: Teo Shu Mei
+- This section meets Thu at 12:00 in AS1-0208
 
 ## Summary of the GenAI policy
 

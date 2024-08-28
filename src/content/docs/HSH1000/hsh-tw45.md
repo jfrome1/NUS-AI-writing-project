@@ -2,9 +2,9 @@
 title: Section TW45
 ---
 
-HSH1000, Section TW45
-Instructor: Teo Shu Mei
-This section meets Thu at 14:00 in AS1-0208
+- HSH1000, Section TW45
+- Instructor: Teo Shu Mei
+- This section meets Thu at 14:00 in AS1-0208
 
 ## Summary of the GenAI policy
 

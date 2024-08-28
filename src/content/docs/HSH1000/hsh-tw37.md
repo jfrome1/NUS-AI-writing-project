@@ -2,9 +2,9 @@
 title: Section TW37
 ---
 
-HSH1000, Section TW37
-Instructor: Koh Hui Li
-This section meets Thu at 8:00 in AS1-0208
+- HSH1000, Section TW37
+- Instructor: Koh Hui Li
+- This section meets Thu at 8:00 in AS1-0208
 
 ## Summary of the GenAI policy
 
