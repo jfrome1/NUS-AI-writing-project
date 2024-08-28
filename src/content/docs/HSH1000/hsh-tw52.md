@@ -2,9 +2,8 @@
 title: Section TW52
 ---
 
-HSH1000, Section TW52
-Instructor: Martin Chong Ken Chuan
-This section meets Fri at 10:00 in AS3-0314
+- Instructor: Martin Chong Ken Chuan
+- This section meets Fri at 10:00 in AS3-0314
 
 ## Summary of the GenAI policy
 

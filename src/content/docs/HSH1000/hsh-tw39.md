@@ -2,7 +2,6 @@
 title: Section TW39
 ---
 
-- HSH1000, Section TW39
 - Instructor: Koh Hui Li
 - This section meets Thu at 10:00 in AS1-0208
 

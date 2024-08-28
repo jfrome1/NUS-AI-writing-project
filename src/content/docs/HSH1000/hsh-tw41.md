@@ -2,7 +2,6 @@
 title: Section TW41
 ---
 
-- HSH1000, Section TW41
 - Instructor: Martin Chong Ken Chuan
 - This section meets Thu at 10:00 in AS1-0213
 

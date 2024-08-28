@@ -2,7 +2,6 @@
 title: Section TW50
 ---
 
-- HSH1000, Section TW50
 - Instructor: Koh Hui Li
 - This section meets Fri at 10:00 in AS1-0208
 

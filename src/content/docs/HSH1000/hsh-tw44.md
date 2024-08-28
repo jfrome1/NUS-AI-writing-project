@@ -2,7 +2,6 @@
 title: Section TW44
 ---
 
-- HSH1000, Section TW44
 - Instructor: Martin Chong Ken Chuan
 - This section meets Thu at 12:00 in AS1-0213
 

@@ -2,7 +2,6 @@
 title: Section TW48
 ---
 
-- HSH1000, Section TW48
 - Instructor: Koh Hui Li
 - This section meets Fri at 8:00 in AS1-0208
 

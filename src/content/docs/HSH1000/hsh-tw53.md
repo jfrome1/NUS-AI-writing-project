@@ -2,9 +2,8 @@
 title: Section TW53
 ---
 
-HSH1000, Section TW53
-Instructor: Teo Shu Mei
-This section meets Fri at 12:00 in AS1-0208
+- Instructor: Teo Shu Mei
+- This section meets Fri at 12:00 in AS1-0208
 
 ## Summary of the GenAI policy
 

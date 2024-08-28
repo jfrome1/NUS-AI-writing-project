@@ -2,9 +2,8 @@
 title: Section TW56
 ---
 
-HSH1000, Section TW56
-Instructor: Teo Shu Mei
-This section meets Fri at 14:00 in AS1-0208
+- Instructor: Teo Shu Mei
+- This section meets Fri at 14:00 in AS1-0208
 
 ## Summary of the GenAI policy
 
