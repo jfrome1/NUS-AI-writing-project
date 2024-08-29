@@ -7,7 +7,7 @@ title: Section TW37
 
 ## Summary of the GenAI policy
 
-- You are free to use or not use GenAI chatbots in this course in almost any way as long as you submit links to your chat transcripts
+- You are free to use or not use GenAI chatbots in this course [:in almost any way](#x-any-way) as long as you submit links to your chat transcripts
 - There is no penalty for using GenAI chatbots
 - Every assignment in this course must include either 1) a link to a transcript of all relevant GenAI use or 2) a statement that no GenAI was used.
 
