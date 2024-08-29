@@ -42,7 +42,15 @@ export default defineConfig({
             src: '/nutshell-config.js',
             defer: true,
           }
-        }
+        },
+		{
+			tag: 'script',
+			attrs: {
+				src: 'https://cloud.umami.is/script.js',
+				'data-website-id': '432e0c5f-d9e1-4c84-b0df-e9b0ad8f603c',
+				defer: true,
+				},
+			},
       ],
     }),
   ],
