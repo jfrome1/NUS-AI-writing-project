@@ -3,7 +3,7 @@ title: Section TW13
 ---
 
 - Instructor: Justin Goh Xian Qiang
-- This section meets Mon at 14:00 in AS1-0210
+- This section meets Mon at 16:00 in AS1-0210
 
 ## Summary of the GenAI policy
 
