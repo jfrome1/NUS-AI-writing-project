@@ -1,0 +1,323 @@
+---
+import "astro-feelback/styles/feelback.css";
+---
+
+<div class="container">
+  <form id="feedbackForm">
+    <label for="feedback">Feedback</label>
+    <textarea
+      id="feedback"
+      name="feedback"
+      placeholder="Send feedback or questions. It's anonymous, so include your name if you want class participation credit."
+      ></textarea>
+    <button id="sendButton" type="button">Send</button>
+  </form>
+  <div id="message"></div>
+</div>
+
+<script>
+  declare global {
+    interface Window {
+      sa_event: any;
+    }
+  }
+
+        const form = document.getElementById('feedbackForm') as HTMLFormElement;
+        const messageDiv = document.getElementById('message') as HTMLDivElement;
+        const button = document.getElementById('sendButton') as HTMLButtonElement;
+
+        if (form && messageDiv && button) { 
+            function showMessage(text: string, type: 'success' | 'error') {
+                messageDiv.textContent = text;
+                messageDiv.className = type + ' show';
+                setTimeout(() => {
+                    messageDiv.classList.remove('show');
+                }, 5000);
+            }
+
+            button.addEventListener('click', async (e) => {
+                e.preventDefault();
+                
+                const feedback = (document.getElementById('feedback') as HTMLTextAreaElement).value;
+                if (!feedback) {
+                    showMessage('Please enter your feedback.', 'error');
+                }
+                button.innerText = 'Sending...';
+                try {
+                    const response = await fetch('https://submit-form.com/V16Xo43GN', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Accept: "application/json",
+                        },
+                        body: JSON.stringify({ feedback, page: location.pathname }),
+                    });
+
+                    if (response.ok) {
+                        showMessage('Feedback submitted successfully!', 'success');
+                        button.innerText = 'Send';
+                        form.reset();
+                    } else {
+                        button.innerText = 'Send';
+                        throw new Error('Server responded with an error');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    button.innerText = 'Send';
+                    showMessage('An error occurred. Please try again.', 'error');
+                }
+            });
+        }
+
+  window.addEventListener("load", function () {
+    let readEventTriggered = false;
+
+    function handleNutshellInactive(link: HTMLAnchorElement) {
+      const openTime = parseInt(link.getAttribute("data-open-time") || "0");
+      if (openTime === 0) return;
+
+      const duration = Date.now() - openTime;
+
+      window.sa_event("inactiveNutshell", {
+        page: document.title,
+        text: link.textContent,
+        duration: duration,
+      });
+
+      link.removeAttribute("data-open-time");
+    }
+
+    function handleNutshellClick(event: Event) {
+      const link = event.currentTarget as HTMLAnchorElement;
+      const currentMode = link.getAttribute("mode");
+
+      if (currentMode === "open") {
+        window.sa_event("openNutshell", {
+          page: document.title,
+          text: link.textContent,
+        });
+
+        link.setAttribute("data-open-time", Date.now().toString());
+
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.type === "childList") {
+              mutation.addedNodes.forEach((node) => {
+                if (node instanceof HTMLElement) {
+                  const newSubLinks = node.querySelectorAll(
+                    ".nutshell-expandable"
+                  ) as NodeListOf<HTMLAnchorElement>;
+                  newSubLinks.forEach(addNutshellListener);
+                }
+              });
+            }
+          });
+        });
+
+        observer.observe(link, { childList: true, subtree: true });
+
+        setTimeout(() => observer.disconnect(), 1000);
+
+        // Find and start observing the nutshell-bubble
+        const nutshellBubble = document.querySelector(
+          ".nutshell-bubble"
+        ) as HTMLElement;
+        if (nutshellBubble) {
+          nutshellObserver.observe(nutshellBubble);
+        }
+      } else if (currentMode === "closed") {
+        handleNutshellInactive(link);
+        const nutshellBubble = document.querySelector(
+          ".nutshell-bubble"
+        ) as HTMLElement;
+        if (nutshellBubble) {
+          nutshellObserver.unobserve(nutshellBubble);
+        }
+      }
+    }
+
+    function addNutshellListener(link: HTMLAnchorElement) {
+      if (!link.hasAttribute("listener-added")) {
+        link.addEventListener("click", handleNutshellClick);
+        link.setAttribute("listener-added", "true");
+      }
+    }
+
+    function handleLinkClick(event: Event) {
+      const link = event.currentTarget as HTMLAnchorElement;
+
+      const isExternal = link.target === "_blank";
+      const eventName = isExternal ? "externalLinkClick" : "internalLinkClick";
+
+      window.sa_event(eventName, {
+        page: document.title,
+        text: link.textContent,
+        link: link.href,
+      });
+    }
+
+    function addLinkListener(link: HTMLAnchorElement) {
+      if (
+        !link.classList.contains("nutshell-expandable") &&
+        !link.hasAttribute("link-listener-added")
+      ) {
+        link.addEventListener("click", handleLinkClick);
+        link.setAttribute("link-listener-added", "true");
+      }
+    }
+
+    function addInitialListeners() {
+      const nutshellLinks = document.querySelectorAll(
+        ".nutshell-expandable"
+      ) as NodeListOf<HTMLAnchorElement>;
+      nutshellLinks.forEach(addNutshellListener);
+
+      const allLinks = document.querySelectorAll(
+        "a"
+      ) as NodeListOf<HTMLAnchorElement>;
+      allLinks.forEach(addLinkListener);
+    }
+
+    const nutshellObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log(entry);
+          if (!entry.isIntersecting) {
+            const nutshellBubble = entry.target as HTMLElement;
+            const nutshellLink = nutshellBubble.previousElementSibling
+              ?.previousSibling as HTMLAnchorElement;
+            if (nutshellLink && nutshellLink.getAttribute("mode") === "open") {
+              handleNutshellInactive(nutshellLink);
+              nutshellLink.click();
+            }
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0,
+      }
+    );
+
+    function handleScroll() {
+      if (!readEventTriggered) {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const totalHeight = document.documentElement.scrollHeight;
+
+        if (scrollPosition >= totalHeight / 2) {
+          window.sa_event("read", { page: document.title });
+          readEventTriggered = true;
+          window.removeEventListener("scroll", handleScroll);
+        }
+      }
+    }
+
+    addInitialListeners();
+    window.addEventListener("scroll", handleScroll);
+
+    const documentObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+          mutation.addedNodes.forEach((node) => {
+            if (node instanceof HTMLElement) {
+              const newNutshellLinks = node.querySelectorAll(
+                ".nutshell-expandable"
+              ) as NodeListOf<HTMLAnchorElement>;
+              newNutshellLinks.forEach(addNutshellListener);
+
+              const newLinks = node.querySelectorAll(
+                "a"
+              ) as NodeListOf<HTMLAnchorElement>;
+              newLinks.forEach(addLinkListener);
+            }
+          });
+        }
+      });
+    });
+
+    documentObserver.observe(document.body, { childList: true, subtree: true });
+  });
+</script>
+
+<style>
+  .container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--sl-color-black);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    display: flex;
+    transition:
+      background-color 0.3s,
+      box-shadow 0.3s;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid  var(--sl-color-gray-4);
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 100px;
+    box-sizing: border-box;
+    transition:
+      background-color 0.3s,
+      color 0.3s,
+      border-color 0.3s;
+    background-color:  var(--sl-color-black)
+    color: #f0f0f0;
+    border-color: #555;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--sl-color-accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+  #message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #message.show {
+            opacity: 1;
+        }
+
+        #message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        #message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+</style>
