@@ -27,8 +27,8 @@ export default defineConfig({
       customCss: ["./src/styles/custom.css"],
 	  sidebar: [
         {
-          label: 'Sections',
-          link: 'index.md',
+          label: 'Courses',
+          autogenerate: { directory: 'sections' },
         },
       ],
       head: [
