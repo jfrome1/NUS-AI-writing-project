@@ -6,7 +6,6 @@ import starlight from "@astrojs/starlight";
 import remarkExternalLinks from "remark-external-links";
 import starlightNutshell from "starlight-nutshell";
 import rehypeExternalLinks from "rehype-external-links";
-
 import compress from "astro-compress";
 
 export default defineConfig({
