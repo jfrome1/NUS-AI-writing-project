@@ -11,8 +11,6 @@ dist/
 build/
 
 # Local environment files
-.env
-.env.local
 .env.*.local
 
 # Logs
@@ -58,7 +56,6 @@ Thumbs.db
 .yarn-integrity
 
 # dotenv environment variables file
-.env.test
 
 # Parcel cache
 .cache
@@ -81,3 +78,4 @@ Thumbs.db
 # Temporary files
 tmp/
 temp/
+config.bat
