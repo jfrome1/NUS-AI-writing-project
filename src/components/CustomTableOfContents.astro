@@ -1,6 +1,6 @@
 ---
 import CustomTableOfContentsList from "./CustomTableOfContentsList.astro";
-const { toc } = Astro.props;
+const { toc } = Astro.locals.starlightRoute;
 
 // Uncomment to remove Overview heading
 const index = toc.items.findIndex(
