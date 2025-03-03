@@ -1,0 +1,9 @@
+---
+import Pagination from "@astrojs/starlight/components/Pagination.astro";
+import Analytics from "./DateAnalyticsComponent.astro";
+---
+
+<>
+<Analytics {...Astro.props as any} />
+<Pagination {...Astro.props as any} />
+</>

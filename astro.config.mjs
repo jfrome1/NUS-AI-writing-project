@@ -21,6 +21,7 @@ export default defineConfig({
       components: {
         // Override the default components.
         TableOfContents: "./src/components/CustomTableOfContents.astro",
+        Pagination: "./src/components/CustomPagination.astro",
       },
       customCss: ["./src/styles/custom.css"],
 	  sidebar: [

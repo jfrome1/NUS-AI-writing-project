@@ -1,0 +1,99 @@
+---
+async function getLatestCommit(slug: string) {
+	try {
+		const response = await fetch(
+			"https://api.github.com/repos/jfrome1/NUS-AI-writing-project/commits?path=src/content/docs/" + slug,
+      {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.TOKEN}`, // Use template literal and environment variable
+        },
+      }
+    );
+		if (!response.ok) {
+			throw new Error('Api to github failed.');
+		}
+
+		const data = await response.json();
+
+		if (data.length === 0) {
+			console.warn('No commits found for the specified file path.');
+			return null;
+		}
+
+		return data[0].commit.author.date; 
+
+	} catch (error) {
+		console.error('Error fetching data:', error);
+		return null;
+	}
+}
+
+function formatCommitDate(dateString: string | null) {
+  if (!dateString) return "Unknown";
+
+  const commitDate = new Date(dateString);
+  const currentDate = new Date();
+  const diffTime = Math.abs(currentDate.getTime() - commitDate.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays > 7) {
+    return "over a week ago";
+  } else {
+    const year = commitDate.getFullYear();
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const monthAbbreviation = monthNames[commitDate.getMonth()];
+    const day = String(commitDate.getDate()).padStart(2, '0');
+    return `${year} ${monthAbbreviation} ${day}`;
+  }
+}
+---
+<div>Last updated: {formatCommitDate(await getLatestCommit(Astro.locals.starlightRoute.entry.id))}</div>
+<p style={{color: "var(--sl-color-gray-3)"}}>Send me questions or feedback about the website via Teams or email for class participation credit.</p>
+
+<script>
+import posthog from "posthog-js";
+
+    const config = {
+      cookieName: 'authUser',
+      postHogConfig: {
+        apiKey: 'phc_t4s4Co4gEm9fzWcHpFUF7zWLFIwv2sR9TiXiNnY74fh',
+        apiHost: 'https://us.i.posthog.com',
+        personProfiles: 'identified_only'
+      }
+    };
+    function initializeTracking() {
+      try {
+        if (typeof posthog === 'undefined') {
+          throw new Error('PostHog is not loaded');
+        }
+
+        posthog.init(config.postHogConfig.apiKey, {
+          api_host: config.postHogConfig.apiHost,
+          persistence: 'memory',
+          person_profiles: 'identified_only',
+        })
+      } catch (error) {
+        console.error('Error initializing tracking:', error);
+      }
+    }
+
+    window.addEventListener("load", function () {
+    let readEventTriggered = false;
+    initializeTracking()
+
+    function handleScroll() {
+      if (!readEventTriggered) {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const totalHeight = document.documentElement.scrollHeight;
+
+        if (scrollPosition >= totalHeight / 2) {
+          posthog.capture("read", { page: document.title });
+          readEventTriggered = true;
+          window.removeEventListener("scroll", handleScroll);
+        }
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    })
+    </script>
