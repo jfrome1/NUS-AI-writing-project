@@ -52,3 +52,27 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+
+## Using the Mermaid Component
+How to use the `Mermaid` component within an Astro project to render Mermaid diagrams. This can only be used in *mdx* files
+
+**Importing the Component:**
+
+To use the `Mermaid` component, you must first import it into your MDX page. Below the front matter (second ---) in the body
+
+````mdx
+---
+import Mermaid from "../../components/Mermaid.astro";
+
+<Mermaid title="Does it work?">
+
+```mermaid
+
+flowchart LR
+
+    Start --> Stop
+
+```
+
+</Mermaid>
+````
