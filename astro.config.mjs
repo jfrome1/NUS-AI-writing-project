@@ -12,7 +12,7 @@ export default defineConfig({
     starlight({
       tableOfContents: {
         minHeadingLevel: 1,
-        maxHeadingLevel: 2,
+        maxHeadingLevel: 3,
       },
       markdown: {
         headingLinks: false,
