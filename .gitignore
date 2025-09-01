@@ -58,7 +58,8 @@ coverage/
 .eslintcache
 .stylelintcache
 
-# Project-specific files
-drafts/
-coding-notes/
-2024 semester 2410 NUS AI writing project - Shortcut.lnk
+# Working folders (ignores any folder beginning with underscore)
+_*/
+
+# Shortcuts
+*.lnk
